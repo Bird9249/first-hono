@@ -1,0 +1,12 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "database": "${workspaceFolder:first-api}/first-db.db",
+      "name": "first-db",
+      "group": "sqlite"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

@@ -1,36 +1,34 @@
-export interface User {
-  id: number;
-  name: string;
+import { InsertUser } from "./repository/schema";
+import {
+  deleteUserQuery,
+  insertUser,
+  queryUser,
+  queryUserById,
+  updateUser,
+} from "./repository/user.repository";
+
+export async function getUser() {
+  return await queryUser();
 }
 
-const user: User[] = [];
-
-export function getUser() {
-  return user;
-}
-
-export function createUser(input: User) {
-  user.push(input);
+export async function createUser(input: InsertUser) {
+  await insertUser(input);
 
   return "success";
 }
 
-export function getById(id: number) {
-  return user.find((val) => val.id === id);
+export async function getById(id: number) {
+  return await queryUserById(id);
 }
 
-export function update(id: number, input: User) {
-  const idx = user.findIndex((val) => val.id === id);
-
-  user[idx] = input;
+export async function update(id: number, input: InsertUser) {
+  await updateUser(id, input);
 
   return "success";
 }
 
-export function deleteUser(id: number) {
-  const idx = user.findIndex((val) => val.id === id);
-
-  user.splice(idx, 1);
+export async function deleteUser(id: number) {
+  await deleteUserQuery(id);
 
   return "success";
 }

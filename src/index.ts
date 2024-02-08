@@ -10,33 +10,33 @@ app.use(async (c, next) => {
 });
 
 app
-  .get("/", ({ json }) => {
-    const user = getUser();
+  .get("/", async ({ json }) => {
+    const user = await getUser();
 
     return json(user, 200);
   })
   .post("/", async ({ req, json }) => {
     const body = await req.json();
-    const result = createUser(body);
+    const result = await createUser(body);
 
     return json(result, 201);
   })
-  .get("/:id", ({ req, json }) => {
+  .get("/:id", async ({ req, json }) => {
     const { id } = req.param();
-    const result = getById(Number(id));
+    const result = await getById(Number(id));
 
     return json(result, 200);
   })
   .put("/:id", async ({ req, json }) => {
     const { id } = req.param();
     const body = await req.json();
-    const result = update(Number(id), body);
+    const result = await update(Number(id), body);
 
     return json(result, 200);
   })
-  .delete("/:id", ({ req, json }) => {
+  .delete("/:id", async ({ req, json }) => {
     const { id } = req.param();
-    const result = deleteUser(Number(id));
+    const result = await deleteUser(Number(id));
 
     return json(result, 200);
   });
