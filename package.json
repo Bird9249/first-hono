@@ -1,8 +1,9 @@
 {
   "scripts": {
     "dev": "bun run --hot src/index.ts",
-    "generate": "drizzle-kit generate:sqlite --schema=./src/**/repository/schema.ts --out=./drizzle",
-    "migrate": "bun run ./src/connections/database/migration.ts"
+    "generate": "drizzle-kit generate:sqlite --config=drizzle.config.ts",
+    "migrate": "bun run ./drizzle/migrate.ts",
+    "push": "drizzle-kit push:sqlite --config=drizzle.config.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.4.3",

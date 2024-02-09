@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "src/connections/database/database";
-import { InsertUser, User, users } from "./schema";
+import { InsertUser, User, users } from "../../connections/database/schema";
 
 export async function queryUser(): Promise<User[]> {
   const response = await db.select().from(users).execute();

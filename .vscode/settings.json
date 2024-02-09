@@ -8,5 +8,6 @@
       "group": "sqlite"
     }
   ],
-  "sqltools.useNodeRuntime": true
+  "sqltools.useNodeRuntime": true,
+  "cSpell.words": ["libsql"]
 }

@@ -1,4 +1,4 @@
-import { InsertUser } from "./repository/schema";
+import { InsertUser } from "../connections/database/schema";
 import {
   deleteUserQuery,
   insertUser,
